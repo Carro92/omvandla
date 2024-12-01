@@ -25,6 +25,6 @@ jobs:
           azure_static_web_apps_api_token: ${{ secrets.AZURE_STATIC_WEB_APPS_API_TOKEN_YELLOW_CLIFF_01AE33203 }}
           repo_token: ${{ secrets.GITHUB_TOKEN }} # Used for Github integrations (i.e. PR comments)
           action: "upload"
-          app_location: "/"  # Här pekar du på root-mappen där index.html finns
-          api_location: "/api"  # Här pekar du på mappen där din Azure Function (GetExchangeRates.cs) finns
+          app_location: "/frontend"  # Här pekar vi på frontend-mappen där index.html finns
+          api_location: "/api"  # Här pekar vi på mappen där din Azure Function (GetExchangeRates.cs) finns
           output_location: ""  # Lämna tomt om du inte har en specifik byggmapp
