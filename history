@@ -125,5 +125,9 @@ Gör en
 - dotnet build
 - func start // för att se valutorna
 
+## För att göra en frontend lokalt
+npx http-server --cors
+
+
 
 

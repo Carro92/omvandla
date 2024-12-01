@@ -3,10 +3,34 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Omvandla - Valutaomvandlare</title>
+    <title>Valutaomvandlare</title>
+    <script src="https://cdn.jsdelivr.net/npm/axios/dist/axios.min.js"></script>
 </head>
 <body>
-    <h1>Välkommen till Omvandla Valutaomvandlare!</h1>
-    <p>Den här appen hjälper dig att omvandla valutor.</p>
+    <h1>Den här appen hjälper dig att omvandla valutor</h1>
+
+    <label for="currencies">Välj valuta (flera valutor separeras med komma):</label><br>
+    <input type="text" id="currencies" name="currencies" placeholder="t.ex. SEK, EUR, USD" style="width:300px;" />
+    <button onclick="fetchExchangeRates()">Hämta Växelkurser</button>
+
+    <h2>Resultat:</h2>
+    <pre id="result"></pre>
+
+    <script>
+        function fetchExchangeRates() {
+            const currencies = document.getElementById("currencies").value.split(',').map(c => c.trim());
+            const apiUrl = "http://127.0.0.1:7071/api/GetExchangeRates"; // Ersätt med din Azure Functions URL om du är på Azure
+
+            axios.post(apiUrl, { currencies })
+                .then(response => {
+                    // Hämta och visa växelkurser
+                    const resultDiv = document.getElementById("result");
+                    resultDiv.textContent = JSON.stringify(response.data, null, 2);
+                })
+                .catch(error => {
+                    console.error("Error fetching exchange rates:", error);
+                });
+        }
+    </script>
 </body>
 </html>
