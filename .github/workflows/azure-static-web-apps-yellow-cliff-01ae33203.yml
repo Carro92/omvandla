@@ -28,3 +28,4 @@ jobs:
           app_location: "/"  # Root mappen där din index.html finns
           api_location: "/"  # Root mappen där din Azure Function (GetExchangeRates.cs) finns
           output_location: "" # Lämna detta tomt om du inte har en specifik byggmapp
+          

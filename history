@@ -119,6 +119,7 @@ host.Run();
 
 "
 
+
 ## För att se om azure function fungerar lokalt att hämta valutorna
 Gör en
 - dotnet restore
